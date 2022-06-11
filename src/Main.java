@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
     Queen queen = new Queen(0,0, "black");
-    System.out.println("hello");
+    System.out.println("test for dror");
     int[][] test = queen.possible_moves();
     print_arr(test);
     }
