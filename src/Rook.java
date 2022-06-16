@@ -2,7 +2,7 @@ public class Rook extends Soldier{
 
 
     public Rook(int x, int y, String color) {
-        super(x,y,color);
+        super(x,y,color, 'R');
     }
 
     @Override

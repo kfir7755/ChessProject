@@ -1,7 +1,7 @@
 public class Bishop extends Soldier{
 
     public Bishop(int x, int y, String color) {
-        super(x,y,color);
+        super(x,y,color, 'B');
     }
 
     @Override

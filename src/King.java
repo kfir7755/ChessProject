@@ -12,7 +12,7 @@ public class King extends Soldier{
     };
 
     public King(int x, int y, String color) {
-        super(x,y,color);
+        super(x,y,color, 'K');
     }
 
     private boolean is_valid_move(int[] move){

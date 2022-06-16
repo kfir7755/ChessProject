@@ -11,7 +11,7 @@ public class Knight extends Soldier{
     };
 
     public Knight(int x, int y, String color) {
-        super(x,y,color);
+        super(x,y,color, 'k');
     }
 
     private boolean is_valid_move(int[] move){

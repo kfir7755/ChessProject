@@ -1,6 +1,6 @@
 public class Main {
 
-    public static void print_arr(int[][] arr){
+    public static void print_possible_moves(int[][] arr){
         if (arr.length == 0){;}
         else {
             System.out.print("[");
@@ -13,10 +13,26 @@ public class Main {
         }
     }
 
+    public static void print_board(Board board){
+        System.out.println("_________________");
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print('|');
+                Soldier soldier = board.getBoard()[i][j].getSoldier();
+                if (soldier == null) {
+                    System.out.print(" ");
+                }
+                else System.out.print(soldier.getLetter());
+            }
+            System.out.println('|');
+        }
+        System.out.print("_________________");
+    }
+
     public static void main(String[] args) {
-    Queen queen = new Queen(0,0, "black");
-    System.out.println("dror changes");
-    int[][] test = queen.possible_moves();
-    print_arr(test);
+        Board board= new Board();
+        board.gameStart();
+        print_board(board);
     }
 }
+

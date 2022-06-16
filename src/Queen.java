@@ -2,7 +2,7 @@ public class Queen extends Soldier{
 
 
     public Queen(int x, int y, String color) {
-        super(x,y,color);
+        super(x,y,color, 'Q');
     }
 
     @Override
