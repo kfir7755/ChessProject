@@ -33,6 +33,7 @@ public class Main {
         Board board= new Board();
         board.gameStart();
         print_board(board);
+        System.out.println("hi");
     }
 }
 
