@@ -16,15 +16,15 @@ public class Main {
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
-        Soldier soldier1 = new Pawn(4,4, "white", false);
-        Soldier soldier2 = new Queen(5,3, "black");
-        Soldier soldier3 = new Knight(5,5, "black");
-        Square square1 = new Square(soldier1);
-        Square square2 = new Square(soldier2);
-        Square square3 = new Square(soldier3);
+        Square square1 = new Square(4,4, null);
+        Square square2 = new Square(5,3, null);
+        Square square3 = new Square(5,5, null);
+        Soldier soldier1 = new Pawn(square1, "w", false);
+        Soldier soldier2 = new Queen(square2, "b");
+        Soldier soldier3 = new Knight(square3, "b");
         board.setSquareInBoard(square1, 4, 4);
         board.setSquareInBoard(square2, 5, 3);
         board.setSquareInBoard(square3, 5, 5);
-        board.possible_moves(square1);
+        board.print_board();
     }
 }

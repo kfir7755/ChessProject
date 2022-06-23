@@ -11,12 +11,12 @@ public class King extends Soldier{
             {1,1}
     };
 
-    public King(int x, int y, String color) {
-        super(x,y,color, 'K');
+    public King(Square square, String color) {
+        super(square ,color, 'K');
     }
 
     private boolean is_valid_move(int[] move){
-        int[] location={this.x+move[0], this.y+move[1]};
+        int[] location={this.square.getX()+move[0], this.square.getY()+move[1]};
         if (location[0]>7 || location[0]< 0) return false;
         if (location[1]>7 || location[1]< 0) return false;
         return true;
@@ -33,8 +33,8 @@ public class King extends Soldier{
         int i=0;
         for(int[] move : moves){
             if (is_valid_move(move)) {
-                possible_moves[i][0] = this.x + move[0];
-                possible_moves[i][1] = this.y + move[1];
+                possible_moves[i][0] = this.square.getX() + move[0];
+                possible_moves[i][1] = this.square.getY() + move[1];
                 i++;
             }
         }

@@ -1,38 +1,21 @@
 public abstract class Soldier {
-    protected int x;
-    protected int y;
+    protected Square square;
     protected String color;
     protected char letter;
 
-    public Soldier(int x, int y, String color, char letter) {
-        this.x = x;
-        this.y = y;
+    public Soldier(Square square, String color, char letter) {
+        this.square = square;
+        this.square.setSoldier(this);
         this.color = color;
         this.letter= letter;
     }
 
-    public Soldier() {
-        this.x=-1;
-        this.y=-1;
-        this.color=null;
-        this.letter=' ';
+    public Square getSquare() {
+        return square;
     }
 
-
-        public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+    public void setSquare(Square square) {
+        this.square = square;
     }
 
     public String getColor() {

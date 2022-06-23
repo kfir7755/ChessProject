@@ -1,14 +1,14 @@
 public class Bishop extends Soldier{
 
-    public Bishop(int x, int y, String color) {
-        super(x,y,color, 'B');
+    public Bishop(Square square, String color) {
+        super(square ,color, 'B');
     }
 
     @Override
     public int[][] possible_moves(){
         int[][] board = new int[8][8];
-        int newX = x-1;
-        int newY = y-1;
+        int newX = this.square.getX()-1;
+        int newY = this.square.getY()-1;
         int counter = 0;
         while (newY > -1 && newX > -1){
             board[newX][newY] = 1;
@@ -16,21 +16,21 @@ public class Bishop extends Soldier{
             newY--;
             newX--;
         }
-        newY = y+1;
+        newY = this.square.getY()+1;
         while (newY < 8 && newX > -1){
             board[newX][newY] = 1;
             counter++;
             newY++;
             newX--;
         }
-        newX = x+1;
+        newX = this.square.getX()+1;
         while (newY < 8 && newX < 8){
             board[newX][newY] = 1;
             counter++;
             newY++;
             newX++;
         }
-        newY = y-1;
+        newY = this.square.getY()-1;
         while (newY > -1 && newX < 8){
             board[newX][newY] = 1;
             counter++;

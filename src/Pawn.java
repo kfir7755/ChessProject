@@ -2,8 +2,8 @@
 public class Pawn extends Soldier{
     private boolean isFirstMove;
 
-    public Pawn(int x, int y,String color, boolean isFirstMove) {
-        super(x,y,color, 'P');
+    public Pawn(Square square,String color, boolean isFirstMove) {
+        super(square ,color, 'P');
         this.isFirstMove = isFirstMove;
     }
 
@@ -12,25 +12,25 @@ public class Pawn extends Soldier{
         int[][] newBoard = new int[8][8];
 
         if (isFirstMove && this.color.equals("black")){
-            int newX = x-1;
-            newBoard[newX][y] = 1;
+            int newX = this.square.getX()-1;
+            newBoard[newX][this.square.getY()] = 1;
             newX-=1;
-            newBoard[newX][y] = 1;
+            newBoard[newX][this.square.getY()] = 1;
         }
         else if (this.color.equals("black")){
-            int newX = x-1;
-            newBoard[newX][y] = 1;
+            int newX = this.square.getX()-1;
+            newBoard[newX][this.square.getY()] = 1;
         }
 
         if (isFirstMove && this.color.equals("white")){
-            int newX = x+1;
-            newBoard[newX][y] = 1;
+            int newX = this.square.getX()+1;
+            newBoard[newX][this.square.getY()] = 1;
             newX+=1;
-            newBoard[newX][y] = 1;
+            newBoard[newX][this.square.getY()] = 1;
         }
         else if (this.color.equals("white")){
-            int newX = x+1;
-            newBoard[newX][y] = 1;
+            int newX = this.square.getX()+1;
+            newBoard[newX][this.square.getY()] = 1;
         }
         int counter = 0;
         for (int i = 0; i < 8; i++) {

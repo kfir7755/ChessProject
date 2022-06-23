@@ -1,61 +1,61 @@
 public class Queen extends Soldier{
 
 
-    public Queen(int x, int y, String color) {
-        super(x,y,color, 'Q');
+    public Queen(Square square, String color) {
+        super(square ,color, 'Q');
     }
 
     @Override
     public int[][] possible_moves() {
         int counter = 0;
-        int newX = x - 1;
+        int newX = this.square.getX() - 1;
         int[][] board = new int[8][8];
         while (newX > -1) {
-            board[newX][y] = 1;
+            board[newX][this.square.getY()] = 1;
             counter++;
             newX--;
         }
-        newX = x + 1;
+        newX = this.square.getX() + 1;
         while (newX < 8) {
-            board[newX][y] = 1;
+            board[newX][this.square.getY()] = 1;
             counter++;
             newX++;
         }
-        int newY = y - 1;
+        int newY = this.square.getY() - 1;
         while (newY > -1) {
-            board[x][newY] = 1;
+            board[this.square.getX()][newY] = 1;
             counter++;
             newY--;
         }
-        newY = y + 1;
+        newY = this.square.getY() + 1;
         while (newY < 8) {
-            board[x][newY] = 1;
+            board[this.square.getX()][newY] = 1;
             counter++;
             newY++;
         }
-        newX = x - 1;
-        newY = y - 1;
+        newX = this.square.getX() - 1;
+        newY = this.square.getY() - 1;
         while (newY > -1 && newX > -1) {
             board[newX][newY] = 1;
             counter++;
             newY--;
             newX--;
         }
-        newY = y + 1;
+        newY = this.square.getY() + 1;
         while (newY < 8 && newX > -1) {
             board[newX][newY] = 1;
             counter++;
             newY++;
             newX--;
         }
-        newX = x + 1;
+        newX = this.square.getX() + 1;
         while (newY < 8 && newX < 8) {
             board[newX][newY] = 1;
             counter++;
             newY++;
             newX++;
         }
-        newY = y - 1;
+        newY = this.square.getY() - 1;
         while (newY > -1 && newX < 8) {
             board[newX][newY] = 1;
             counter++;
