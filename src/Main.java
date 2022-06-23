@@ -12,31 +12,19 @@ public class Main {
         }
     }
 
-    public static void print_board(Board board){
-        System.out.println("_________________________");
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print('|');
-                Soldier soldier = board.getBoard()[i][j].getSoldier();
-                if (soldier == null) {
-                    System.out.print("  ");
-                }
-                else if (i==0 || i==1) {
-                    System.out.print("w" + soldier.getLetter());
-                }
-                else if (i==7 || i==6){
-                    System.out.print("b" + soldier.getLetter());
-                }
-            }
-            System.out.println('|');
-        }
-        System.out.print("__________________________");
-    }
 
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
-        print_board(board);
+        Soldier soldier1 = new Pawn(4,4, "white", false);
+        Soldier soldier2 = new Queen(5,3, "black");
+        Soldier soldier3 = new Knight(5,5, "black");
+        Square square1 = new Square(soldier1);
+        Square square2 = new Square(soldier2);
+        Square square3 = new Square(soldier3);
+        board.setSquareInBoard(square1, 4, 4);
+        board.setSquareInBoard(square2, 5, 3);
+        board.setSquareInBoard(square3, 5, 5);
+        board.possible_moves(square1);
     }
 }
-
