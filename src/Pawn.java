@@ -11,7 +11,7 @@ public class Pawn extends Soldier{
     public int[][] possible_moves() {
         int[][] newBoard = new int[8][8];
 
-        if (isFirstMove && this.color.equals("b")){
+        if (isFirstMove && this.color.equals("w")){
             int newX = this.square.getX()-1;
             newBoard[newX][this.square.getY()] = 1;
             newX-=1;
@@ -22,13 +22,13 @@ public class Pawn extends Soldier{
             newBoard[newX][this.square.getY()] = 1;
         }
 
-        if (isFirstMove && this.color.equals("w")){
+        if (isFirstMove && this.color.equals("b")){
             int newX = this.square.getX()+1;
             newBoard[newX][this.square.getY()] = 1;
             newX+=1;
             newBoard[newX][this.square.getY()] = 1;
         }
-        else if (this.color.equals("w")){
+        else if (this.color.equals("b")){
             int newX = this.square.getX()+1;
             newBoard[newX][this.square.getY()] = 1;
         }

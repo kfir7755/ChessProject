@@ -19,13 +19,13 @@ public class Main {
         Square square1 = new Square(4,4, null);
         Square square2 = new Square(5,3, null);
         Square square3 = new Square(5,5, null);
-        Soldier soldier1 = new Pawn(square1, "w", false);
-        Soldier soldier2 = new Queen(square2, "b");
-        Soldier soldier3 = new Knight(square3, "b");
+        Soldier soldier1 = new Pawn(square1, "b", false);
+        Soldier soldier2 = new Queen(square2, "w");
+        Soldier soldier3 = new Knight(square3, "w");
         board.setSquareInBoard(square1);
         board.setSquareInBoard(square2);
         board.setSquareInBoard(square3);
         board.print_board();
-        print_possible_moves(board.possible_moves(board.getBoard()[4][4]));
+        print_possible_moves(board.possible_moves(board.getBoard()[5][3]));
     }
 }

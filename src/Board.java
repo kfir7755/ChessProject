@@ -23,28 +23,28 @@ public class Board {
 
     public void gameStart() {
         Soldier[][] soldiers = new Soldier[8][8];
-        soldiers[0][0] = new Rook(this.board[0][0], "w");
-        soldiers[0][1] = new Knight(this.board[0][1], "w");
-        soldiers[0][2] = new Bishop(this.board[0][2], "w");
-        soldiers[0][3] = new Queen(this.board[0][3], "w");
-        soldiers[0][4] = new King(this.board[0][4], "w");
-        soldiers[0][5] = new Bishop(this.board[0][5], "w");
-        soldiers[0][6] = new Knight(this.board[0][6], "w");
-        soldiers[0][7] = new Rook(this.board[0][7], "w");
+        soldiers[0][0] = new Rook(this.board[0][0], "b");
+        soldiers[0][1] = new Knight(this.board[0][1], "b");
+        soldiers[0][2] = new Bishop(this.board[0][2], "b");
+        soldiers[0][3] = new Queen(this.board[0][3], "b");
+        soldiers[0][4] = new King(this.board[0][4], "b");
+        soldiers[0][5] = new Bishop(this.board[0][5], "b");
+        soldiers[0][6] = new Knight(this.board[0][6], "b");
+        soldiers[0][7] = new Rook(this.board[0][7], "b");
         for (int i = 0; i < 8; i++) {
-            soldiers[1][i] = new Pawn(board[1][i], "w", true);
+            soldiers[1][i] = new Pawn(board[1][i], "b", true);
         }
         for (int i = 0; i < 8; i++) {
-            soldiers[6][i] = new Pawn(board[6][i], "b", true);
+            soldiers[6][i] = new Pawn(board[6][i], "w", true);
         }
-        soldiers[7][0] = new Rook(this.board[7][0], "b");
-        soldiers[7][1] = new Knight(this.board[7][1], "b");
-        soldiers[7][2] = new Bishop(this.board[7][2], "b");
-        soldiers[7][3] = new Queen(this.board[7][3], "b");
-        soldiers[7][4] = new King(this.board[7][4], "b");
-        soldiers[7][5] = new Bishop(this.board[7][5], "b");
-        soldiers[7][6] = new Knight(this.board[7][6], "b");
-        soldiers[7][7] = new Rook(this.board[7][7], "b");
+        soldiers[7][0] = new Rook(this.board[7][0], "w");
+        soldiers[7][1] = new Knight(this.board[7][1], "w");
+        soldiers[7][2] = new Bishop(this.board[7][2], "w");
+        soldiers[7][3] = new Queen(this.board[7][3], "w");
+        soldiers[7][4] = new King(this.board[7][4], "w");
+        soldiers[7][5] = new Bishop(this.board[7][5], "w");
+        soldiers[7][6] = new Knight(this.board[7][6], "w");
+        soldiers[7][7] = new Rook(this.board[7][7], "w");
     }
 
     public int[][] possible_moves(Square square) {
@@ -61,12 +61,12 @@ public class Board {
         if (square.getSoldier().getLetter() == 'P') {
             x = square.getX();
             y = square.getY();
-            if (square.getSoldier().getColor().equals("w")) {
+            if (square.getSoldier().getColor().equals("b")) {
                 newX = x + 1;
                 newY = y + 1;
                 if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8)
                     if (board[newX][newY].getSoldier() != null)
-                        if (board[newX][newY].getSoldier().getColor().equals("b")) {
+                        if (board[newX][newY].getSoldier().getColor().equals("w")) {
                             eatingRight++;
                             x1 = newX;
                             y1 = newY;
@@ -75,7 +75,7 @@ public class Board {
 
                 newY = y - 1;
                 if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                    if (board[newX][newY].getSoldier().getColor().equals("b")) {
+                    if (board[newX][newY].getSoldier().getColor().equals("w")) {
                         eatingLeft++;
                         x2 = newX;
                         y2 = newY;
@@ -85,12 +85,12 @@ public class Board {
         } else if (square.getSoldier().getLetter() == 'P') {
             x = square.getX();
             y = square.getY();
-            if (square.getSoldier().getColor().equals("b")) {
+            if (square.getSoldier().getColor().equals("w")) {
                 newX = x - 1;
                 newY = y + 1;
             }
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board[newX][newY].getSoldier().getColor().equals("w")) {
+                if (board[newX][newY].getSoldier().getColor().equals("b")) {
                     eatingRight++;
                     x1 = newX;
                     y1 = newY;
@@ -98,7 +98,7 @@ public class Board {
             }
             newY = y - 1;
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board[newX][newY].getSoldier().getColor().equals("w")) {
+                if (board[newX][newY].getSoldier().getColor().equals("b")) {
                     eatingLeft++;
                     x2 = newX;
                     y2 = newY;
@@ -146,5 +146,16 @@ public class Board {
             System.out.println();
         }
         System.out.println("_________________________");
+    }
+
+    public boolean move(int x, int y, Square square) {
+        boolean can_move = false;
+        int[][] possible_moves = possible_moves(square);
+        for (int i = 0; i < possible_moves[0].length; i++) {
+            if (possible_moves[i][0] == x && possible_moves[i][1] == y){
+                can_move = true;
+            }
+        }
+        return can_move;
     }
 }

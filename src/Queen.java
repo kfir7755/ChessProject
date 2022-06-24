@@ -10,25 +10,26 @@ public class Queen extends Soldier{
         int counter = 0;
         int newX = this.square.getX() - 1;
         int[][] board = new int[8][8];
-        while (newX > -1) {
+        Board board1 = new Board();
+        while (newX > -1 && board1.getBoard()[newX][this.square.getY()].getSoldier() == null) {
             board[newX][this.square.getY()] = 1;
             counter++;
             newX--;
         }
         newX = this.square.getX() + 1;
-        while (newX < 8) {
+        while (newX < 8 && board1.getBoard()[newX][this.square.getY()].getSoldier() == null) {
             board[newX][this.square.getY()] = 1;
             counter++;
             newX++;
         }
         int newY = this.square.getY() - 1;
-        while (newY > -1) {
+        while (newY > -1 && board1.getBoard()[this.square.getX()][newY].getSoldier() == null) {
             board[this.square.getX()][newY] = 1;
             counter++;
             newY--;
         }
         newY = this.square.getY() + 1;
-        while (newY < 8) {
+        while (newY < 8 && board1.getBoard()[this.square.getX()][newY].getSoldier() == null) {
             board[this.square.getX()][newY] = 1;
             counter++;
             newY++;
