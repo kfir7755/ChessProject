@@ -52,10 +52,10 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             System.out.print('|');
             for (int j = 0; j < 8; j++) {
-                Soldier soldier = this.board[i][j].getSoldier();
+                Soldier soldier = getSquare(i, j).getSoldier();
                 if (soldier == null) {
                     System.out.print("  ");
-                } else  {
+                } else {
                     System.out.print(soldier.getColor() + soldier.getLetter());
                 }
                 System.out.print('|');
@@ -65,17 +65,25 @@ public class Board {
         System.out.println("_________________________");
     }
 
-    public int[][] possible_moves (Square square, Board board){
+    public int[][] possible_moves(Square square, Board board) {
         return square.getSoldier().possible_moves(board);
     }
 
-    public Board[][] move(int x, int y, int to_move_x, int to_move_y, Board board){
-        Square square = new Square(to_move_x, to_move_y, null);
-        char letter = board.getSquare(x, y).getSoldier().getLetter();
-        String color = board.getSquare(x, y).getSoldier().getColor();
-        if (letter=='P'){
-            Soldier soldier = new Pawn(square, color, false);
-            this.board[to_move_x][to_move_y] = square;
+    public void move(int x, int y, int to_move_x, int to_move_y, Board board) {
+        int[][] possible_moves = getSquare(x, y).getSoldier().possible_moves(board);
+        boolean is_valid = false;
+        for (int i = 0; i < possible_moves[0].length; i++) {
+            if (possible_moves[i][0] == to_move_x && possible_moves[i][1] == to_move_y){
+                is_valid = true;
+            }
+        }
+        if (is_valid == true) {
+            Soldier soldier = getSquare(x, y).getSoldier();
+            getSquare(x, y).setSoldier(null);
+            getSquare(to_move_x, to_move_y).setSoldier(soldier);
         }
     }
+
 }
+
+
