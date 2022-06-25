@@ -1,4 +1,3 @@
-
 public class Pawn extends Soldier{
     private boolean isFirstMove;
 
@@ -8,10 +7,8 @@ public class Pawn extends Soldier{
     }
 
     @Override
-    public int[][] possible_moves() {
+    public int[][] possible_moves(Board board) {
         int[][] newBoard = new int[8][8];
-        Board board = new Board();
-        board.getBoard();
         int x1 = -1, x2 = -1, y1 = 0, y2 = 0, counter = 0;
         if (isFirstMove && this.color.equals("w")) {
             int newX = this.square.getX() - 1;

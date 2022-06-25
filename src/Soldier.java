@@ -26,5 +26,5 @@ public abstract class Soldier {
         return letter;
     }
 
-    public abstract int[][] possible_moves ();
+    public abstract int[][] possible_moves (Board board);
 }
