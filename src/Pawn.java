@@ -37,8 +37,8 @@ public class Pawn extends Soldier{
             int newX = square.getX() + 1;
             int newY = square.getY() + 1;
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board.getBoard()[newX][newY].getSoldier() != null) {
-                    if (board.getBoard()[newX][newY].getSoldier().getColor().equals("w")) {
+                if (board.getSquare(newX, newY).getSoldier() != null) {
+                    if (board.getSquare(newX, newY).getSoldier().getColor().equals("w")) {
                         counter++;
                         x1 = newX;
                         y1 = newY;
@@ -47,8 +47,8 @@ public class Pawn extends Soldier{
             }
             newY = square.getY() - 1;
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board.getBoard()[newX][newY].getSoldier() != null) {
-                    if (board.getBoard()[newX][newY].getSoldier().getColor().equals("w")) {
+                if (board.getSquare(newX, newY).getSoldier() != null) {
+                    if (board.getSquare(newX, newY).getSoldier().getColor().equals("w")) {
                         counter++;
                         x1 = newX;
                         y1 = newY;
@@ -59,7 +59,7 @@ public class Pawn extends Soldier{
             int newX = square.getX() - 1;
             int newY = square.getY() + 1;
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board.getBoard()[newX][newY].getSoldier().getColor().equals("b")) {
+                if (board.getSquare(newX, newY).getSoldier().getColor().equals("b")) {
                     counter++;
                     x1 = newX;
                     y1 = newY;
@@ -67,7 +67,7 @@ public class Pawn extends Soldier{
             }
             newY = square.getY() - 1;
             if (newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
-                if (board.getBoard()[newX][newY].getSoldier().getColor().equals("b")) {
+                if (board.getSquare(newX, newY).getSoldier().getColor().equals("b")) {
                     counter++;
                     x2 = newX;
                     y2 = newY;

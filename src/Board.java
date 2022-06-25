@@ -65,7 +65,7 @@ public class Board {
         System.out.println("_________________________");
     }
 
-    public int[][] possible_moves (Square square){
-        return square.getSoldier().possible_moves();
+    public int[][] possible_moves (Square square, Board board){
+        return square.getSoldier().possible_moves(board);
     }
 }

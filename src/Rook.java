@@ -6,20 +6,18 @@ public class Rook extends Soldier{
     }
 
     @Override
-    public int[][] possible_moves(){
+    public int[][] possible_moves(Board board){
         int counter = 0;
         int newX = this.square.getX() -1;
         int newY = this.square.getY() -1;
-        int[][] board = new int[8][8];
-        Board board1 = new Board();
-        board1.getBoard();
+        int[][] board_bool = new int[8][8];
         while (newX >= 0) {
-            if (board1.getBoard()[newX][this.square.getY()].getSoldier() == null) {
-                board[newX][this.square.getY()] = 1;
+            if (board.getSquare(newX, this.square.getY()).getSoldier() == null) {
+                board_bool[newX][this.square.getY()] = 1;
                 counter++;
-                newY++;
-            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
-                board[newX][this.square.getY()] = 1;
+                newX--;
+            } else if (!color.equals(board.getSquare(newX, this.square.getY()))) {
+                board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 break;
             } else {
@@ -28,12 +26,12 @@ public class Rook extends Soldier{
         }
         newX = this.square.getX() + 1;
         while (newX < 8) {
-            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
-                board[this.square.getX()][newY] = 1;
+            if (board.getSquare(newX, this.square.getY()).getSoldier() == null) {
+                board_bool[newX][this.square.getY()] = 1;
                 counter++;
-                newY++;
-            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
-                board[this.square.getX()][newY] = 1;
+                newX++;
+            } else if (!color.equals(board.getSquare(newX,this.square.getY()))) {
+                board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 break;
             } else {
@@ -42,12 +40,12 @@ public class Rook extends Soldier{
         }
         newY = this.square.getY() + 1;
         while (newY < 8) {
-            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
-                board[this.square.getX()][newY] = 1;
+            if (board.getSquare(this.square.getX(), newY).getSoldier() == null) {
+                board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 newY++;
-            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
-                board[this.square.getX()][newY] = 1;
+            } else if (!color.equals(board.getSquare(this.square.getX(), newY))) {
+                board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 break;
             } else {
@@ -56,12 +54,12 @@ public class Rook extends Soldier{
         }
         newY = this.square.getY() - 1;
         while (newY >= 0) {
-            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
-                board[this.square.getX()][newY] = 1;
+            if (board.getSquare(this.square.getX(), newY).getSoldier() == null) {
+                board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 newY--;
-            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
-                board[this.square.getX()][newY] = 1;
+            } else if (!color.equals(board.getSquare(this.square.getX(), newY))) {
+                board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 break;
             } else {
@@ -72,7 +70,7 @@ public class Rook extends Soldier{
         int k = 0;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (board[i][j] == 1){
+                if (board_bool[i][j] == 1){
                     possible_moves[k][0] = i;
                     possible_moves[k][1] = j;
                     k++;
