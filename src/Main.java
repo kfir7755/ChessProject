@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
+        System.out.println("test");
         board.print_board();
     }
 }
