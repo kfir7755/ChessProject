@@ -26,6 +26,6 @@ public class Main {
         board.setSquareInBoard(square2);
         board.setSquareInBoard(square3);
         board.print_board();
-        print_possible_moves(board.possible_moves(board.getSquare(4,4), board));
+        print_possible_moves(board.possible_moves(board.getSquare(5,3), board));
     }
 }

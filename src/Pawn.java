@@ -50,8 +50,8 @@ public class Pawn extends Soldier{
                 if (board.getSquare(newX, newY).getSoldier() != null) {
                     if (board.getSquare(newX, newY).getSoldier().getColor().equals("w")) {
                         counter++;
-                        x1 = newX;
-                        y1 = newY;
+                        x2 = newX;
+                        y2 = newY;
                     }
                 }
             }
