@@ -9,29 +9,64 @@ public class Rook extends Soldier{
     public int[][] possible_moves(){
         int counter = 0;
         int newX = this.square.getX() -1;
-        int[][] board = new int[8][8];
-        while (newX>-1){
-            board[newX][this.square.getY()] = 1;
-            counter++;
-            newX--;
-        }
-        newX = this.square.getX()+1;
-        while (newX < 8){
-            board[newX][this.square.getY()] = 1;
-            counter++;
-            newX++;
-        }
         int newY = this.square.getY() -1;
-        while (newY > -1){
-            board[this.square.getX()][newY] = 1;
-            counter++;
-            newY--;
+        int[][] board = new int[8][8];
+        Board board1 = new Board();
+        board1.getBoard();
+        while (newX >= 0) {
+            if (board1.getBoard()[newX][this.square.getY()].getSoldier() == null) {
+                board[newX][this.square.getY()] = 1;
+                counter++;
+                newY++;
+            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
+                board[newX][this.square.getY()] = 1;
+                counter++;
+                break;
+            } else {
+                break;
+            }
         }
-        newY = this.square.getY()+1;
-        while (newY < 8){
-            board[this.square.getX()][newY] = 1;
-            counter++;
-            newY++;
+        newX = this.square.getX() + 1;
+        while (newX < 8) {
+            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                newY++;
+            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                break;
+            } else {
+                break;
+            }
+        }
+        newY = this.square.getY() + 1;
+        while (newY < 8) {
+            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                newY++;
+            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                break;
+            } else {
+                break;
+            }
+        }
+        newY = this.square.getY() - 1;
+        while (newY >= 0) {
+            if (board1.getBoard()[square.getX()][newY].getSoldier() == null) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                newY--;
+            } else if (!color.equals(board1.getBoard()[newX][square.getY()])) {
+                board[this.square.getX()][newY] = 1;
+                counter++;
+                break;
+            } else {
+                break;
+            }
         }
         int[][] possible_moves = new int[counter][2];
         int k = 0;

@@ -1,5 +1,5 @@
 public class King extends Soldier{
-
+Board board = new Board();
     private final static int[][] moves={
             {0,1},
             {-1,1},
@@ -17,10 +17,15 @@ public class King extends Soldier{
 
     private boolean is_valid_move(int[] move){
         int[] location={this.square.getX()+move[0], this.square.getY()+move[1]};
-        if (location[0]>7 || location[0]< 0) return false;
-        if (location[1]>7 || location[1]< 0) return false;
-        return true;
+        if ((location[0]>7 || location[0]< 0) && (location[1]>7 || location[1]< 0) && board.getBoard()[location[0]][location[1]].getSoldier().getColor().equals(this.color)){
+            return false;
+        }
+        else if (board.getBoard()[location[0]][location[1]].getSoldier() == null || !board.getBoard()[location[0]][location[1]].getSoldier().getColor().equals(this.color)){
+            return true;
+        }
+        else return false;
     }
+
 
     @Override
     public int[][] possible_moves (){
