@@ -16,11 +16,6 @@ public class Main {
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
-        Square square2 = new Square(3,0, null);
-        Soldier soldier2 = new Queen(square2, "w");
-        board.setSquareInBoard(square2);
-        board.move(1,0,3,0, board);
         board.print_board();
-
     }
 }

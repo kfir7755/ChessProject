@@ -30,7 +30,7 @@ public class Rook extends Soldier{
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 newX++;
-            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
+            } else if (!board.getSquare(newX,this.square.getY()).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 break;
