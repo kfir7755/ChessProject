@@ -16,7 +16,7 @@ public class Queen extends Soldier {
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 newX--;
-            } else if (!color.equals(board.getSquare(newX, this.square.getY()))) {
+            } else if (!board.getSquare(newX, this.square.getY()).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 break;
@@ -30,7 +30,7 @@ public class Queen extends Soldier {
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 newX++;
-            } else if (!color.equals(board.getSquare(newX, this.square.getY()))) {
+            } else if (!board.getSquare(newX, this.square.getY()).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][this.square.getY()] = 1;
                 counter++;
                 break;
@@ -44,7 +44,7 @@ public class Queen extends Soldier {
                 board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 newY++;
-            } else if (!color.equals(board.getSquare(this.square.getX(), newY))) {
+            } else if (!board.getSquare(this.square.getX(), newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 break;
@@ -58,7 +58,7 @@ public class Queen extends Soldier {
                 board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 newY--;
-            } else if (!color.equals(board.getSquare(this.square.getX(), newY))) {
+            } else if (!board.getSquare(this.square.getX(), newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[this.square.getX()][newY] = 1;
                 counter++;
                 break;
@@ -74,7 +74,7 @@ public class Queen extends Soldier {
                 counter++;
                 newY--;
                 newX--;
-            } else if (!color.equals(board.getSquare(newX, newY))) {
+            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][newY] = 1;
                 counter++;
                 break;
@@ -91,7 +91,7 @@ public class Queen extends Soldier {
                     counter++;
                     newY++;
                     newX--;
-                } else if (!color.equals(board.getSquare(newX, newY))) {
+                } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                     board_bool[newX][newY] = 1;
                     counter++;
                     break;
@@ -108,7 +108,7 @@ public class Queen extends Soldier {
                     counter++;
                     newY++;
                     newX++;
-                } else if (!color.equals(board.getSquare(newX, newY))) {
+                } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                     board_bool[newX][newY] = 1;
                     counter++;
                     break;
@@ -124,7 +124,7 @@ public class Queen extends Soldier {
                     counter++;
                     newY--;
                     newX++;
-                } else if (!color.equals(board.getSquare(newX, newY))) {
+                } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                     board_bool[newX][newY] = 1;
                     counter++;
                     break;

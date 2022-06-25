@@ -68,4 +68,14 @@ public class Board {
     public int[][] possible_moves (Square square, Board board){
         return square.getSoldier().possible_moves(board);
     }
+
+    public Board[][] move(int x, int y, int to_move_x, int to_move_y, Board board){
+        Square square = new Square(to_move_x, to_move_y, null);
+        char letter = board.getSquare(x, y).getSoldier().getLetter();
+        String color = board.getSquare(x, y).getSoldier().getColor();
+        if (letter=='P'){
+            Soldier soldier = new Pawn(square, color, false);
+            this.board[to_move_x][to_move_y] = square;
+        }
+    }
 }

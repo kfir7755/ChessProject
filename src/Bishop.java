@@ -16,7 +16,7 @@ public class Bishop extends Soldier{
                 counter++;
                 newY--;
                 newX--;
-            } else if (!color.equals(board.getSquare(newX, newY))) {
+            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][newY] = 1;
                 counter++;
                 break;
@@ -33,7 +33,7 @@ public class Bishop extends Soldier{
                 counter++;
                 newY++;
                 newX--;
-            } else if (!color.equals(board.getSquare(newX, newY))) {
+            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][newY] = 1;
                 counter++;
                 break;
@@ -50,7 +50,7 @@ public class Bishop extends Soldier{
                 counter++;
                 newY++;
                 newX++;
-            } else if (!color.equals(board.getSquare(newX, newY))) {
+            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][newY] = 1;
                 counter++;
                 break;
@@ -66,7 +66,7 @@ public class Bishop extends Soldier{
                 counter++;
                 newY--;
                 newX++;
-            } else if (!color.equals(board.getSquare(newX, newY))) {
+            } else if (!board.getSquare(newX,newY).getSoldier().getColor().equals(this.color)) {
                 board_bool[newX][newY] = 1;
                 counter++;
                 break;

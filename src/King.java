@@ -16,10 +16,10 @@ public class King extends Soldier{
 
     private boolean is_valid_move(int[] move, Board board){
         int[] location={this.square.getX()+move[0], this.square.getY()+move[1]};
-        if ((location[0]>7 || location[0]< 0) && (location[1]>7 || location[1]< 0) && board.getBoard()[location[0]][location[1]].getSoldier().getColor().equals(this.color)){
+        if ((location[0]>7 || location[0]< 0) && (location[1]>7 || location[1]< 0) && board.getSquare(location[0], location[1]).getSoldier().getColor().equals(this.color)){
             return false;
         }
-        else if (board.getBoard()[location[0]][location[1]].getSoldier() == null || !board.getBoard()[location[0]][location[1]].getSoldier().getColor().equals(this.color)){
+        else if (board.getBoard()[location[0]][location[1]].getSoldier() == null || !board.getSquare(location[0],location[1]).getSoldier().getColor().equals(this.color)){
             return true;
         }
         else return false;
