@@ -16,7 +16,11 @@ public class Main {
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
-        System.out.println("test");
+        Square square = new Square(1, 0, null);
+        board.setSquareInBoard(square);
+        board.move(0,0, 6, 0, board);
+        board.print_board();
+        board.move(7,0, 6, 0, board);
         board.print_board();
     }
 }
