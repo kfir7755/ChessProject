@@ -69,8 +69,8 @@ public class Board {
         return square.getSoldier().possible_moves(board);
     }
 
-    public void move(int x, int y, int to_move_x, int to_move_y, Board board) {
-        int[][] possible_moves = getSquare(x, y).getSoldier().possible_moves(board);
+    public void move(int x, int y, int to_move_x, int to_move_y) {
+        int[][] possible_moves = getSquare(x, y).getSoldier().possible_moves(this);
         boolean is_valid = false;
         for (int i = 0; i < possible_moves.length; i++) {
             if (possible_moves[i][0] == to_move_x && possible_moves[i][1] == to_move_y){

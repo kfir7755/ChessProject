@@ -16,11 +16,9 @@ public class Main {
     public static void main(String[] args) {
         Board board= new Board();
         board.gameStart();
-        Square square = new Square(1, 0, null);
-        board.setSquareInBoard(square);
-        board.move(0,0, 6, 0, board);
-        board.print_board();
-        board.move(7,0, 6, 0, board);
+        board.setSquareInBoard(new Square(5,4,null));
+        Soldier soldier= new Knight(board.getSquare(5,4), "b");
+        board.move(5,4, 7,3);
         board.print_board();
     }
 }
